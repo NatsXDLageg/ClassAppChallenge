@@ -1,0 +1,4 @@
+Este programa foi desenvolvido para ser executado como servidor local na porta 8080.
+Para executá-lo, utilize o comando "node .\FileUpload.js" na raiz do projeto.
+O servidor será executado, e para acessá-lo, utilize "http://localhost:8080".
+O arquivo input.csv foi incluído no projeto apenas por comodidade, e possui os dados encontrados na página do desafio.
