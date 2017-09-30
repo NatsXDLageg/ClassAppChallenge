@@ -53,7 +53,6 @@ http.createServer(function (req, res) {
                                     isFullname = fullnameValueRE.exec(cellContent);
                                     if (isFullname) {
                                         var fullname = cellContent.substring(isFullname.index);
-                                        console.log("Fullname is " + fullname);
 
                                         user.UpdateFullname(fullname);
                                     }
@@ -67,7 +66,6 @@ http.createServer(function (req, res) {
                                         isEID = eidValueRE.exec(cellContent);
                                         if (isEID) {
                                             var eid = cellContent.substring(isEID.index);
-                                            console.log("EID is " + eid);
 
                                             user.eid = eid;
 
@@ -97,10 +95,6 @@ http.createServer(function (req, res) {
 
                                             if (allValidClasses) {
                                                 var classes = possibleClasses;
-                                                console.log("Classes:");
-                                                for (var i = 0; i < classes.length; i++) {
-                                                    console.log("- " + classes[i]);
-                                                }
 
                                                 user.UpdateClasses(classes);
                                             }
@@ -137,7 +131,6 @@ http.createServer(function (req, res) {
 
                                                     if (allValidEmail) {
                                                         var emails = possibleEmails;
-                                                        console.log("Emails:");
 
                                                         var tags = []
                                                         for (var i = 0; i < possibleTags.length; i++) {
@@ -145,8 +138,6 @@ http.createServer(function (req, res) {
                                                         }
                                                         var addresses = []
                                                         for (var i = 0; i < emails.length; i++) {
-                                                            console.log("- " + emails[i]);
-
                                                             var address = new Address();
                                                             address.type = "email"
                                                             address.tags = tags;
@@ -186,7 +177,6 @@ http.createServer(function (req, res) {
 
                                                             if (allValidTag) {
                                                                 var phone = phoneUtil.format(phoneNumber, PNF.E164).substring(1);
-                                                                console.log("Phone is " + phone);
 
                                                                 var tags = []
                                                                 for (var i = 0; i < possibleTags.length; i++) {
@@ -226,7 +216,6 @@ http.createServer(function (req, res) {
                                                             else {
                                                                 invisible = false;
                                                             }
-                                                            console.log("Invisible is " + invisible);
 
                                                             user.invisible = invisible;
                                                         }
@@ -252,12 +241,8 @@ http.createServer(function (req, res) {
                                                                 else {
                                                                     seeAll = false;
                                                                 }
-                                                                console.log("SeeAll is " + seeAll);
                                                                 user.see_all = seeAll;
                                                             }
-                                                        }
-                                                        else {
-                                                            console.log("It is nothing");
                                                         }
                                                     }
                                                 }
@@ -320,7 +305,6 @@ var User = function () {
     this.UpdateClasses = function (classes) {
         // This approach of turning 1-sized array of classes into string was only adopted to match the results with the expected one
         if(typeof this.classes === "string") {
-            console.log("STRING");
             if(this.classes == "") {
                 this.classes = [];
             }
